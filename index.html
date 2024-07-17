@@ -8,62 +8,46 @@
   <script src="./index.js" defer></script>
   <title>Frontend Mentor | Todo app</title>
 </head>
-<body>
+<body class="light">
   <main>
     <section class="header">
         <div class="header-image">
             <img src="./images/bg-mobile-light.jpg" class="mobile light" alt="">
+            <img src="./images/bg-mobile-dark.jpg" class="mobile dark" alt="">
         </div>
         <div class="nav">
             <h1>Todo</h1>
             <div class="btn">
-                <img src="./images/icon-moon.svg" class="toggle dark" id="dark-theme-toggle" alt="">
-                <!-- <img src="./images/icon-sun.svg" class="toggle light" id="light-theme-toggle" alt=""> -->
+                <img src="./images/icon-moon.svg" class="toggle light" id="dark-theme-toggle" alt="">
+                <img src="./images/icon-sun.svg" class="toggle dark" id="light-theme-toggle" alt="">
             </div>
         </div>
+    </section>
+    <section class="task-manager">
         <div class="input">
             <div class="circle"></div>
             <input type="text" placeholder="Create a new todo...">
         </div>
+        <section class="tasks">
+            <div class="item">
+                <label class="form-control">
+                    <input type="checkbox" name="" id="">
+                    Lorem ipsum dolor sit amet.
+                </label>
+                <div class="delete-btn"><img src="./images/icon-cross.svg" alt="Delete Task"></div>
+            </div>
+            <div class="test">
+                <span class="items-left"><span id="items-left-number">5</span> items left</span>
+                <div class="btn-clear" id="btn-clear">Clear Completed</div>
+            </div>
+        </section>
+        <section class="filter">
+            <span class="all" id="all">All</span>
+            <span class="active" id="active">Active</span>
+            <span class="completed" id="completed">Completed</span>
+        </section>
+        <p>Drag and drop to reorder list</p>
     </section>
-    <section class="tasks">
-        <div class="item">
-            <div class="circle"></div>
-            <div class="stuff">Lorem ipsum dolor sit amet.</div>
-            <div class="delete-btn"><img src="./images/icon-cross.svg" alt="Delete Task"></div>
-        </div>
-        <div class="item">
-            <div class="circle"></div>
-            <div class="stuff">Lorem ipsum dolor sit amet.</div>
-            <div class="delete-btn"><img src="./images/icon-cross.svg" alt="Delete Task"></div>
-        </div>
-        <div class="item">
-            <div class="circle"></div>
-            <div class="stuff">Lorem ipsum dolor sit amet.</div>
-            <div class="delete-btn"><img src="./images/icon-cross.svg" alt="Delete Task"></div>
-        </div>
-        <div class="item">
-            <div class="circle"></div>
-            <div class="stuff">Lorem ipsum dolor sit amet.</div>
-            <div class="delete-btn"><img src="./images/icon-cross.svg" alt="Delete Task"></div>
-        </div>
-        <div class="item">
-            <div class="circle"></div>
-            <div class="stuff">Lorem ipsum dolor sit amet.</div>
-            <div class="delete-btn"><img src="./images/icon-cross.svg" alt="Delete Task"></div>
-        </div>
-        <div class="test">
-            <span class="items-left"><span id="items-left-number">5</span> items left</span>
-            <div class="btn-clear" id="btn-clear">Clear Completed</div>
-        </div>
-    </section>
-    <section class="filter">
-        <span class="all" id="all">All</span>
-        <span class="active" id="active">Active</span>
-        <span class="completed" id="completed">Completed</span>
-    </section>
-     
-    <p>Drag and drop to reorder list</p>
   </main>
 </body>
 </html>

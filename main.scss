@@ -9,7 +9,25 @@
 
 body {
     font-family: "Josefin Sans", sans-serif;
+    
+    .dark {
+        display: none;
+    }
+}
+
+
+main {
     background-color: rgba(250, 250, 250, 1);
+    position: relative;
+    display: grid;
+    .header,
+    .task-manager {
+        grid-area: 1/2;
+    }
+
+    .task-manager {
+        margin-top: 6.5rem;
+    }
 }
 
 
@@ -19,34 +37,13 @@ body {
     .nav {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        margin: 3.05rem 1.75rem 0;
+        margin: 3.05rem 1.45rem 0;
         .btn {
             margin-left: auto;
         }
     }
-    .input {
-        margin: auto 1.75rem 3rem;
-        display: grid;
-        input {
-            padding: 1rem;
-            width: 100%;
-            border-radius: 4px;
-            outline: none;
-            border: none;
-            color: rgba(148, 149, 165, 1);
-            font-size: .75rem;
-            letter-spacing: -.17px;
-            padding-left: 3rem;
-        }
-
-        input, 
-        .circle {
-            grid-area: 1/-1;
-        }
-    }
     .nav, 
-    .header-image,
-    .input {
+    .header-image {
         grid-area: 1/2;
     }
     h1 {
@@ -58,19 +55,43 @@ body {
     }
 }
 
+.input {
+    margin: auto 1.45rem 1rem;
+    display: grid;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 6px;
+    input {
+        padding: 1rem 1.5rem;
+        width: 100%;
+        border-radius: 4px;
+        outline: none;
+        border: none;
+        color: rgba(148, 149, 165, 1);
+        font-family: "Josefin Sans", sans-serif;
+        font-size: .75rem;
+        // letter-spacing: -.17px
+        padding-left: 3.5rem;
+    }
+
+    input, 
+    .circle {
+        grid-area: 1/-1;
+    }
+}
+
 .tasks {
     border-radius: 6px;
     color: rgba(73, 76, 107, 1);
-    margin: 0 1.75rem;
+    margin: 0 1.45rem;
     background-color: rgba(255, 255, 255, 1);
     box-shadow: 6px 6px 58px 2px rgba(227, 228, 241, 1);
-    // position: absolute;
 
     .test {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         padding: 1.5rem 1.5rem;
         color: rgba(148, 149, 165, 1);
+        font-size: .75rem;
         .btn-clear {
             margin-left: auto;
         }
@@ -94,13 +115,60 @@ p {
     color: rgba(148, 149, 165, 1);
     text-align: center;
     font-size: .875rem;
+    margin-bottom: 4rem;
 }
 
 .item {
+    .form-control {
+        display: grid;
+        grid-template-columns: 1rem auto;
+        gap: 1rem;
+        align-items: center;
+    }
     display: grid;
-    grid-template-columns: repeat(3, auto);
-    padding: 1.5rem 0;
-    border-bottom: 2px solid rgba(227, 228, 241, 1);
+    grid-template-columns: repeat(2, auto);
+    column-gap: .5rem;
+    align-items: center;
+    padding: 1.2rem 1.5rem;
+    border-bottom: 1px solid rgba(227, 228, 241, 1);
+    font-size: .75rem;
+
+    input[type="checkbox"] {
+        appearance: none;
+        -webkit-appearance: none;
+        background-color: #fff;
+        margin: 0;
+        color: rgb(78, 110, 126);
+        width: 1.25rem;
+        height: 1.25rem;
+        border: .15rem solid rgba(227, 228, 241, 1);
+        border-radius: 50%;
+        transform: translateY(0rem);
+        display: grid;
+        place-content: center;
+    }
+
+    input[type="checkbox"]::before {
+        content: "";
+        width: .65rem;
+        height: .65rem;
+        border-radius: 50%;
+        transform: scale(0);
+        transition: 120ms transform ease-in-out;
+        box-shadow: inset 1rem 1rem rgba(255, 255, 255, 1);
+        transform-origin: bottom left;
+        clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+    }
+    
+    
+    input[type="checkbox"]:checked::before {
+        transform: scale(1);
+        background-image: linear-gradient(rgba(85, 221, 255, 1), rgba(192, 88, 243, 1));
+    }
+
+    .delete-btn {
+        margin-left: auto;
+    }
 }
 
 .circle {
@@ -111,5 +179,27 @@ p {
     transform: translateY(0rem);
     display: grid;
     place-content: center;
-    margin: auto 0 auto 1rem;
+    margin: auto 0 auto 1.5rem;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: rgba(209, 210, 218, 1);
+    input[type="checkbox"] {
+        background-image: linear-gradient(rgba(85, 221, 255, 1), rgba(192, 88, 243, 1));
+        border: none;
+    }
+}
+
+
+.dark-mode {
+    .light {
+        display: none;
+    }
+    .dark {
+        display: block;
+    }
+    main {
+        background-color: rgba(23, 24, 35, 1) !important;
+    }
 }
