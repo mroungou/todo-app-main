@@ -1,0 +1,115 @@
+@use 'fonts';
+@use 'variables';
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: "Josefin Sans", sans-serif;
+    background-color: rgba(250, 250, 250, 1);
+}
+
+
+.header {
+    display: grid;
+
+    .nav {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin: 3.05rem 1.75rem 0;
+        .btn {
+            margin-left: auto;
+        }
+    }
+    .input {
+        margin: auto 1.75rem 3rem;
+        display: grid;
+        input {
+            padding: 1rem;
+            width: 100%;
+            border-radius: 4px;
+            outline: none;
+            border: none;
+            color: rgba(148, 149, 165, 1);
+            font-size: .75rem;
+            letter-spacing: -.17px;
+            padding-left: 3rem;
+        }
+
+        input, 
+        .circle {
+            grid-area: 1/-1;
+        }
+    }
+    .nav, 
+    .header-image,
+    .input {
+        grid-area: 1/2;
+    }
+    h1 {
+        color:rgba(255, 255, 255, 1);
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 2rem;
+        letter-spacing: 8px;
+    }
+}
+
+.tasks {
+    border-radius: 6px;
+    color: rgba(73, 76, 107, 1);
+    margin: 0 1.75rem;
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 6px 6px 58px 2px rgba(227, 228, 241, 1);
+    // position: absolute;
+
+    .test {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 1.5rem 1.5rem;
+        color: rgba(148, 149, 165, 1);
+        .btn-clear {
+            margin-left: auto;
+        }
+    }
+}
+
+.filter {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 1rem 1.75rem 4rem;
+    padding: 1.5rem 3rem;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 6px;
+    color: rgba(148, 149, 165, 1);
+    font-weight: 700;
+    letter-spacing: -.19px;
+    font-size: .875rem;
+}
+
+p {
+    color: rgba(148, 149, 165, 1);
+    text-align: center;
+    font-size: .875rem;
+}
+
+.item {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    padding: 1.5rem 0;
+    border-bottom: 2px solid rgba(227, 228, 241, 1);
+}
+
+.circle {
+    width: 1.25rem;
+    height: 1.25rem;
+    border: .15rem solid rgba(227, 228, 241, 1);
+    border-radius: 50%;
+    transform: translateY(0rem);
+    display: grid;
+    place-content: center;
+    margin: auto 0 auto 1rem;
+}
