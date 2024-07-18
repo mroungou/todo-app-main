@@ -101,7 +101,7 @@ main {
 .filter {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    margin: 1rem 1.75rem 4rem;
+    margin: 1rem 1.45rem 4rem;
     padding: 1.5rem 3rem;
     background: rgba(255, 255, 255, 1);
     border-radius: 6px;
@@ -182,7 +182,7 @@ p {
     margin: auto 0 auto 1.5rem;
 }
 
-.completed {
+.done {
     text-decoration: line-through;
     color: rgba(209, 210, 218, 1);
     input[type="checkbox"] {
@@ -201,5 +201,37 @@ p {
     }
     main {
         background-color: rgba(23, 24, 35, 1) !important;
+    }
+
+    .tasks {
+        background-color: rgba(37, 39, 61, 1);
+        box-shadow: none;
+        color: rgba(200, 203, 231, 1);
+    }
+
+    .item {
+        border-bottom: 1px solid rgba(57, 58, 75, 1);
+        input[type="checkbox"] {
+            background-color: rgba(57, 58, 75, 1);
+            border: .15rem solid rgba(73, 76, 107, 1);
+        }
+    }
+
+    .filter {
+        background-color: rgba(37, 39, 61, 1);
+        color: rgba(91, 94, 126, 1);
+    }
+
+    .input {
+        input {
+            background-color: rgba(37, 39, 61, 1);
+        }
+    }
+
+    .circle {
+        border: .15rem solid rgba(57, 58, 75, 1);
+    }
+    p {
+        color: rgba(91, 94, 126, 1)
     }
 }

@@ -90,7 +90,7 @@ main .task-manager {
 .filter {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  margin: 1rem 1.75rem 4rem;
+  margin: 1rem 1.45rem 4rem;
   padding: 1.5rem 3rem;
   background: rgb(255, 255, 255);
   border-radius: 6px;
@@ -169,11 +169,11 @@ p {
   margin: auto 0 auto 1.5rem;
 }
 
-.completed {
+.done {
   text-decoration: line-through;
   color: rgb(209, 210, 218);
 }
-.completed input[type=checkbox] {
+.done input[type=checkbox] {
   background-image: linear-gradient(rgb(85, 221, 255), rgb(192, 88, 243));
   border: none;
 }
@@ -186,4 +186,29 @@ p {
 }
 .dark-mode main {
   background-color: rgb(23, 24, 35) !important;
+}
+.dark-mode .tasks {
+  background-color: rgb(37, 39, 61);
+  box-shadow: none;
+  color: rgb(200, 203, 231);
+}
+.dark-mode .item {
+  border-bottom: 1px solid rgb(57, 58, 75);
+}
+.dark-mode .item input[type=checkbox] {
+  background-color: rgb(57, 58, 75);
+  border: 0.15rem solid rgb(73, 76, 107);
+}
+.dark-mode .filter {
+  background-color: rgb(37, 39, 61);
+  color: rgb(91, 94, 126);
+}
+.dark-mode .input input {
+  background-color: rgb(37, 39, 61);
+}
+.dark-mode .circle {
+  border: 0.15rem solid rgb(57, 58, 75);
+}
+.dark-mode p {
+  color: rgb(91, 94, 126);
 }/*# sourceMappingURL=main.css.map */
