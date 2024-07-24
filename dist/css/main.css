@@ -1,4 +1,39 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+.dark-mode .light {
+  display: none;
+}
+.dark-mode .dark {
+  display: block;
+}
+.dark-mode main {
+  background-color: rgb(23, 24, 35) !important;
+}
+.dark-mode .tasks {
+  background-color: rgb(37, 39, 61);
+  box-shadow: none;
+  color: rgb(200, 203, 231);
+}
+.dark-mode .item {
+  border-bottom: 1px solid rgb(57, 58, 75);
+}
+.dark-mode .item input[type=checkbox] {
+  background-color: rgb(57, 58, 75);
+  border: 0.15rem solid rgb(73, 76, 107);
+}
+.dark-mode .filter {
+  background-color: rgb(37, 39, 61);
+  color: rgb(91, 94, 126);
+}
+.dark-mode .input input {
+  background-color: rgb(37, 39, 61);
+}
+.dark-mode .circle {
+  border: 0.15rem solid rgb(57, 58, 75);
+}
+.dark-mode p {
+  color: rgb(91, 94, 126);
+}
+
 * {
   margin: 0;
   box-sizing: border-box;
@@ -171,44 +206,9 @@ p {
 
 .done {
   text-decoration: line-through;
-  color: rgb(209, 210, 218);
+  color: rgb(209, 210, 218) !important;
 }
 .done input[type=checkbox] {
   background-image: linear-gradient(rgb(85, 221, 255), rgb(192, 88, 243));
-  border: none;
-}
-
-.dark-mode .light {
-  display: none;
-}
-.dark-mode .dark {
-  display: block;
-}
-.dark-mode main {
-  background-color: rgb(23, 24, 35) !important;
-}
-.dark-mode .tasks {
-  background-color: rgb(37, 39, 61);
-  box-shadow: none;
-  color: rgb(200, 203, 231);
-}
-.dark-mode .item {
-  border-bottom: 1px solid rgb(57, 58, 75);
-}
-.dark-mode .item input[type=checkbox] {
-  background-color: rgb(57, 58, 75);
-  border: 0.15rem solid rgb(73, 76, 107);
-}
-.dark-mode .filter {
-  background-color: rgb(37, 39, 61);
-  color: rgb(91, 94, 126);
-}
-.dark-mode .input input {
-  background-color: rgb(37, 39, 61);
-}
-.dark-mode .circle {
-  border: 0.15rem solid rgb(57, 58, 75);
-}
-.dark-mode p {
-  color: rgb(91, 94, 126);
+  border: none !important;
 }/*# sourceMappingURL=main.css.map */

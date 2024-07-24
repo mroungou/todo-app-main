@@ -1,0 +1,43 @@
+@mixin darkMode {
+    .light {
+        display: none;
+    }
+    .dark {
+        display: block;
+    }
+    main {
+        background-color: rgba(23, 24, 35, 1) !important;
+    }
+
+    .tasks {
+        background-color: rgba(37, 39, 61, 1);
+        box-shadow: none;
+        color: rgba(200, 203, 231, 1);
+    }
+
+    .item {
+        border-bottom: 1px solid rgba(57, 58, 75, 1);
+        input[type="checkbox"] {
+            background-color: rgba(57, 58, 75, 1);
+            border: .15rem solid rgba(73, 76, 107, 1);
+        }
+    }
+
+    .filter {
+        background-color: rgba(37, 39, 61, 1);
+        color: rgba(91, 94, 126, 1);
+    }
+
+    .input {
+        input {
+            background-color: rgba(37, 39, 61, 1);
+        }
+    }
+
+    .circle {
+        border: .15rem solid rgba(57, 58, 75, 1);
+    }
+    p {
+        color: rgba(91, 94, 126, 1)
+    }
+}

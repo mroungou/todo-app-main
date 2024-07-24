@@ -8,7 +8,7 @@
   <script src="./index.js" defer></script>
   <title>Frontend Mentor | Todo app</title>
 </head>
-<body class="dark-mode">
+<body id="body">
   <main>
     <section class="header">
         <div class="header-image">
@@ -24,20 +24,22 @@
         </div>
     </section>
     <section class="task-manager">
-        <div class="input">
+        <form action="" class="input" id="input">
             <div class="circle"></div>
-            <input type="text" placeholder="Create a new todo...">
-        </div>
-        <section class="tasks">
-            <div class="item">
-                <label class="form-control">
-                    <input type="checkbox" name="" id="">
-                    Lorem ipsum dolor sit amet.
-                </label>
-                <div class="delete-btn"><img src="./images/icon-cross.svg" alt="Delete Task"></div>
+            <input type="text" id="create-todo-input" placeholder="Create a new todo...">
+        </form>
+        <section class="tasks" id="tasks">
+            <div class="task-container" id="tasks-container">
+                <!-- <div class="item" id="item">
+                    <label class="form-control">
+                        <input type="checkbox" name="" id="">
+                        Lorem ipsum dolor sit amet.
+                    </label>
+                    <div class="delete-btn" id="delete-btn"><img src="./images/icon-cross.svg" alt="Delete Task"></div>
+                </div> -->
             </div>
             <div class="test">
-                <span class="items-left"><span id="items-left-number">5</span> items left</span>
+                <span class="items-left"><span id="items-left-number">0</span> items left</span>
                 <div class="btn-clear" id="btn-clear">Clear Completed</div>
             </div>
         </section>
