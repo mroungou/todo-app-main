@@ -8,7 +8,7 @@ const allFilterBtn = document.getElementById('all');
 const activeFilterBtn = document.getElementById('active');
 const completedFilterBtn = document.getElementById('completed');
 const activeTasksCount = document.getElementById('items-left-number');
-const taskItems = document.querySelectorAll('.form-control');
+// const taskItems = document.querySelectorAll('.form-control');
 const tasksContainer = document.getElementById('tasks-container');
 
 const taskData = JSON.parse(localStorage.getItem("tasks")) || [];
@@ -42,16 +42,17 @@ const addTask = () => {
 
 const updateTasksContainer = () => {
     tasksContainer.innerHTML = "";
+    activeTasksCount.innerText = taskData.length;
 
     taskData.forEach(
         ({id, title}) => {
         (tasksContainer.innerHTML += `
             <div class="item" id=${id}>
-                <label class="form-control">
+                <label class="form-control" onclick="completed(this)">
                     <input type="checkbox">
                     ${title}
                 </label>
-                <img class="delete-btn" id="delete-btn" onlick="deleteTask(this)" src="./images/icon-cross.svg" alt="Delete Task">
+                <img class="delete-btn" id="delete-btn" onclick="deleteTask(this)" src="./images/icon-cross.svg" alt="Delete Task">
             </div>
         `)
         }
@@ -73,8 +74,7 @@ const deleteTask = (buttonEl) => {
     buttonEl.parentElement.remove();
     taskData.splice(dataArrIndex, 1);
     localStorage.setItem("tasks", JSON.stringify(taskData));
-
-    console.log('hi')
+    activeTasksCount.innerText = taskData.length;
 };
 
 
@@ -84,16 +84,25 @@ themeChangeBtns.forEach((btn) => {
     })
 })
 
-taskForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    addTask();
-})
-
-taskItems.forEach((item) => {
-    item.addEventListener('click', () => {
-        item.parentElement.parentElement.classList.toggle('done');
+window.addEventListener('DOMContentLoaded', () => {
+    taskForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+    
+        addTask();
     })
+
+    updateTasksContainer();
 })
+
+const completed = (todoItem) => {
+    todoItem.parentElement.classList.toggle('done');
+    console.log('clicked')
+} 
+
+// taskItems.forEach((item) => {
+//     item.addEventListener('click', () => {
+//         item.parentElement.parentElement.classList.toggle('done');
+//     })
+// })
 
 
