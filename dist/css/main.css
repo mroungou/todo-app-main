@@ -211,4 +211,8 @@ p {
 .done input[type=checkbox] {
   background-image: linear-gradient(rgb(85, 221, 255), rgb(192, 88, 243));
   border: none !important;
+}
+
+.selected {
+  color: rgb(58, 124, 253);
 }/*# sourceMappingURL=main.css.map */

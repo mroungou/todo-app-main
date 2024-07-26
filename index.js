@@ -11,6 +11,7 @@ const activeTasksCount = document.getElementById('items-left-number');
 // const taskItems = document.querySelectorAll('.form-control');
 const tasksContainer = document.getElementById('tasks-container');
 // const checkBoxes = document.querySelectorAll('input[type="checkbox"]');
+const filters = document.getElementsByClassName('filters');
 
 let taskData = JSON.parse(localStorage.getItem("tasks")) || [];
 let filteredTaskData = [...taskData];
@@ -112,6 +113,12 @@ const toggleCompleted = (todoItem) => {
     // console.log('clicked')
 }
 
+const updateFilterButtonState = (selectedButton) => {
+    const filterButtons = [allFilterBtn, activeFilterBtn, completedFilterBtn];
+    filterButtons.forEach(btn => btn.classList.remove('selected'));
+    selectedButton.classList.add('selected');
+};
+
 clearBtn.addEventListener('click', () => {
     taskData = taskData.filter(task => !task.completed)
     localStorage.setItem("tasks", JSON.stringify(taskData));
@@ -122,16 +129,19 @@ clearBtn.addEventListener('click', () => {
 allFilterBtn.addEventListener('click', () => {
     filteredTaskData = [...taskData];
     updateTasksContainer();
+    updateFilterButtonState(allFilterBtn);
 });
 
 activeFilterBtn.addEventListener('click', () => {
     filteredTaskData = taskData.filter(task => !task.completed);
     updateTasksContainer();
+    updateFilterButtonState(activeFilterBtn);
 })
 
 completedFilterBtn.addEventListener('click', () => {
     filteredTaskData = taskData.filter(task => task.completed)
     updateTasksContainer();
+    updateFilterButtonState(completedFilterBtn)
 })
 
 
