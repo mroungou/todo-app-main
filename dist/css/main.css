@@ -98,6 +98,7 @@ main .task-manager {
   font-family: "Josefin Sans", sans-serif;
   font-size: 0.75rem;
   padding-left: 3.5rem;
+  z-index: 1;
 }
 .input input,
 .input .circle {
