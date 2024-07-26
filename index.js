@@ -12,12 +12,13 @@ const activeTasksCount = document.getElementById('items-left-number');
 const tasksContainer = document.getElementById('tasks-container');
 // const checkBoxes = document.querySelectorAll('input[type="checkbox"]');
 
-const taskData = JSON.parse(localStorage.getItem("tasks")) || [];
+let taskData = JSON.parse(localStorage.getItem("tasks")) || [];
+let filteredTaskData = [...taskData];
 let currentTask = {};
 
 const addTask = () => {
     // this will be used to check if there are any tasks with the same id - 
-    // if there are none it will add if there are matches it will not
+    // if there are none it will add if there are matches it will n ot
     const dataArrIndex = taskData.findIndex((item) => item.id === currentTask.id);
 
     const taskObj = {
@@ -38,6 +39,7 @@ const addTask = () => {
     }
 
     localStorage.setItem("tasks", JSON.stringify(taskData));
+    filteredTaskData = [...taskData];
     updateTasksContainer();
     reset();
 }
@@ -46,12 +48,12 @@ const updateTasksContainer = () => {
     tasksContainer.innerHTML = "";
     activeTasksCount.innerText = taskData.filter(task => !task.completed).length;
 
-    taskData.forEach(
+    filteredTaskData.forEach(
         ({id, title, completed}) => {
         (tasksContainer.innerHTML += `
             <div class="item  ${completed ? 'done': ''}" id=${id}>
                 <label class="form-control">
-                    <input type="checkbox" ${completed ? 'checked' : ''} onclick="completed(this)">
+                    <input type="checkbox" ${completed ? 'checked' : ''} onclick="toggleCompleted(this)">
                     ${title}
                 </label>
                 <img class="delete-btn" id="delete-btn" onclick="deleteTask(this)" src="./images/icon-cross.svg" alt="Delete Task">
@@ -67,6 +69,7 @@ const reset = () => {
     currentTask = {};
 
     if (taskData.length) {
+        filteredTaskData = [...taskData];
         updateTasksContainer();
     }
 }
@@ -77,6 +80,7 @@ const deleteTask = (buttonEl) => {
     buttonEl.parentElement.remove();
     taskData.splice(dataArrIndex, 1);
     localStorage.setItem("tasks", JSON.stringify(taskData));
+    filteredTaskData = [...taskData];
     activeTasksCount.innerText = taskData.filter(task => !task.completed).length;
 };
 
@@ -97,11 +101,12 @@ window.addEventListener('DOMContentLoaded', () => {
     updateTasksContainer();
 })
 
-const completed = (todoItem) => {
+const toggleCompleted = (todoItem) => {
     const taskId = todoItem.parentElement.parentElement.id;
     const task = taskData.find(task => task.id === taskId);
     task.completed = todoItem.checked;
     localStorage.setItem("tasks", JSON.stringify(taskData)); // Updates local storage
+    filteredTaskData = [...taskData];
     updateTasksContainer();
     // todoItem.parentElement.parentElement.classList.toggle('done');
     // console.log('clicked')
@@ -110,6 +115,22 @@ const completed = (todoItem) => {
 clearBtn.addEventListener('click', () => {
     taskData = taskData.filter(task => !task.completed)
     localStorage.setItem("tasks", JSON.stringify(taskData));
+    filteredTaskData = [...taskData];
+    updateTasksContainer();
+});
+
+allFilterBtn.addEventListener('click', () => {
+    filteredTaskData = [...taskData];
+    updateTasksContainer();
+});
+
+activeFilterBtn.addEventListener('click', () => {
+    filteredTaskData = taskData.filter(task => !task.completed);
+    updateTasksContainer();
+})
+
+completedFilterBtn.addEventListener('click', () => {
+    filteredTaskData = taskData.filter(task => task.completed)
     updateTasksContainer();
 })
 
