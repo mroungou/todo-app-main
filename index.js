@@ -10,6 +10,7 @@ const completedFilterBtn = document.getElementById('completed');
 const activeTasksCount = document.getElementById('items-left-number');
 // const taskItems = document.querySelectorAll('.form-control');
 const tasksContainer = document.getElementById('tasks-container');
+// const checkBoxes = document.querySelectorAll('input[type="checkbox"]');
 
 const taskData = JSON.parse(localStorage.getItem("tasks")) || [];
 let currentTask = {};
@@ -23,14 +24,15 @@ const addTask = () => {
         // creates a unique id for each task that is added - the date.now() method will
         // unique numbers from the year 1970 seconds elapsed
         id: `${todoInput.value.toLowerCase().split(" ").join("-")}-${Date.now()}`,
-        title: todoInput.value
+        title: todoInput.value,
+        completed: false //adding a completed property - this tracks whether a task has been completed
     };
 
     // findIndex method will return -1 if there is no match found
     // if there is no match found I want to add using unshift at the beginning of the array
     if (dataArrIndex === -1) {
         taskData.unshift(taskObj)
-        activeTasksCount.innerText = taskData.length;
+        activeTasksCount.innerText = taskData.filter(task => !task.completed).length;
     } else {
         taskData[dataArrIndex] = taskObj;
     }
@@ -42,14 +44,14 @@ const addTask = () => {
 
 const updateTasksContainer = () => {
     tasksContainer.innerHTML = "";
-    activeTasksCount.innerText = taskData.length;
+    activeTasksCount.innerText = taskData.filter(task => !task.completed).length;
 
     taskData.forEach(
-        ({id, title}) => {
+        ({id, title, completed}) => {
         (tasksContainer.innerHTML += `
-            <div class="item" id=${id}>
-                <label class="form-control" onclick="completed(this)">
-                    <input type="checkbox">
+            <div class="item  ${completed ? 'done': ''}" id=${id}>
+                <label class="form-control">
+                    <input type="checkbox" ${completed ? 'checked' : ''} onclick="completed(this)">
                     ${title}
                 </label>
                 <img class="delete-btn" id="delete-btn" onclick="deleteTask(this)" src="./images/icon-cross.svg" alt="Delete Task">
@@ -57,6 +59,7 @@ const updateTasksContainer = () => {
         `)
         }
     );
+
 };
 
 const reset = () => {
@@ -74,7 +77,7 @@ const deleteTask = (buttonEl) => {
     buttonEl.parentElement.remove();
     taskData.splice(dataArrIndex, 1);
     localStorage.setItem("tasks", JSON.stringify(taskData));
-    activeTasksCount.innerText = taskData.length;
+    activeTasksCount.innerText = taskData.filter(task => !task.completed).length;
 };
 
 
@@ -95,9 +98,22 @@ window.addEventListener('DOMContentLoaded', () => {
 })
 
 const completed = (todoItem) => {
-    todoItem.parentElement.classList.toggle('done');
-    console.log('clicked')
-} 
+    const taskId = todoItem.parentElement.parentElement.id;
+    const task = taskData.find(task => task.id === taskId);
+    task.completed = todoItem.checked;
+    localStorage.setItem("tasks", JSON.stringify(taskData)); // Updates local storage
+    updateTasksContainer();
+    // todoItem.parentElement.parentElement.classList.toggle('done');
+    // console.log('clicked')
+}
+
+clearBtn.addEventListener('click', () => {
+    taskData = taskData.filter(task => !task.completed)
+    localStorage.setItem("tasks", JSON.stringify(taskData));
+    updateTasksContainer();
+})
+
+
 
 // taskItems.forEach((item) => {
 //     item.addEventListener('click', () => {
