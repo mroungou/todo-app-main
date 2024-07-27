@@ -13,6 +13,9 @@
   box-shadow: none;
   color: rgb(200, 203, 231);
 }
+.dark-mode .tasks .test .btn-clear:hover {
+  color: rgb(227, 228, 241);
+}
 .dark-mode .item {
   border-bottom: 1px solid rgb(57, 58, 75);
 }
@@ -24,6 +27,9 @@
   background-color: rgb(37, 39, 61);
   color: rgb(91, 94, 126);
 }
+.dark-mode .filter2 *:hover {
+  color: rgb(227, 228, 241) !important;
+}
 .dark-mode .input input {
   background-color: rgb(37, 39, 61);
 }
@@ -33,10 +39,33 @@
 .dark-mode p {
   color: rgb(91, 94, 126);
 }
+.dark-mode .typing {
+  color: rgb(200, 203, 231) !important;
+}
+.dark-mode body {
+  transition: background-color 1s ease-in, color 1s ease-in;
+}
+.dark-mode .item, .dark-mode .form-control, .dark-mode .delete-btn {
+  transition: background-color 1s ease-in, color 1s ease-in;
+}
+.dark-mode button, .dark-mode input {
+  transition: background-color 1s ease-in, color 1s ease-in, border-color 1s ease-in;
+}
+.dark-mode .toggle {
+  transition: opacity 1s ease-in;
+}
 
 * {
   margin: 0;
   box-sizing: border-box;
+}
+
+.desktop {
+  display: none;
+}
+
+.filter2 {
+  display: none;
 }
 
 body {
@@ -194,6 +223,58 @@ p {
   margin-left: auto;
 }
 
+@media screen and (min-width: 1440px) {
+  .desktop {
+    display: block;
+  }
+  .mobile {
+    display: none !important;
+  }
+  main .task-manager {
+    margin: 10.5rem 27.55rem;
+  }
+  .header .nav {
+    margin: 5.05rem 29rem 0rem;
+  }
+  .header h1 {
+    letter-spacing: 1rem;
+  }
+  .input {
+    margin: auto 1.45rem 1.5rem;
+  }
+  .tasks .test {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .tasks .test .btn-clear:hover {
+    cursor: pointer;
+    color: rgb(73, 76, 107);
+  }
+  .tasks .filter2 {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    padding: 0;
+    margin: auto;
+  }
+  .tasks .filter2 * {
+    margin: 0 0.75rem;
+  }
+  .tasks .filter2 *:hover {
+    cursor: pointer;
+    color: rgb(73, 76, 107);
+  }
+  .item .form-control:hover {
+    cursor: pointer;
+  }
+  .item input[type=checkbox]:hover {
+    cursor: pointer;
+    -o-border-image: linear-gradient(rgb(192, 88, 243), rgb(85, 221, 255));
+       border-image: linear-gradient(rgb(192, 88, 243), rgb(85, 221, 255));
+    border: 0.15rem solid;
+  }
+  p {
+    margin-top: 4rem;
+  }
+}
 .circle {
   width: 1.25rem;
   height: 1.25rem;
@@ -203,6 +284,7 @@ p {
   display: grid;
   place-content: center;
   margin: auto 0 auto 1.5rem;
+  z-index: 2;
 }
 
 .done {
@@ -216,4 +298,8 @@ p {
 
 .selected {
   color: rgb(58, 124, 253);
+}
+
+.typing {
+  color: rgb(57, 58, 75) !important;
 }/*# sourceMappingURL=main.css.map */

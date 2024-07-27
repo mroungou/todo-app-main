@@ -10,6 +10,13 @@
     box-sizing: border-box;
 }
 
+.desktop {
+    display: none;
+}
+
+.filter2 {
+    display: none;
+}
 
 body {
     font-family: "Josefin Sans", sans-serif;
@@ -176,6 +183,76 @@ p {
     }
 }
 
+@media screen and (min-width: 1440px) {
+    .desktop {
+        display: block;
+    }
+    .mobile {
+        display: none !important;
+    }
+
+    main {
+        .task-manager {
+            margin: 10.5rem 27.55rem;
+        }
+    }
+
+    .header {
+        .nav {
+            margin: 5.05rem 29rem 0rem;
+        }
+        h1 {
+            letter-spacing: 1rem;
+        }
+    }
+
+    .input {
+        margin: auto 1.45rem 1.5rem;
+    }
+
+    .tasks {
+        .test {
+            grid-template-columns: repeat(3, 1fr);
+            .btn-clear:hover {
+                cursor: pointer;
+                color: rgba(73, 76, 107, 1);
+            }
+        }
+        .filter2 {
+            display: grid;
+            grid-template-columns: repeat(3, auto);
+            padding: 0;
+            margin: auto;
+            // text-align: center;
+
+            * {
+                margin: 0 .75rem;
+            }
+            
+            *:hover {
+                cursor: pointer;
+                color: rgba(73, 76, 107, 1);
+            }
+        }
+    }
+    
+    .item {
+        .form-control:hover {
+            cursor: pointer;
+        }
+
+        input[type="checkbox"]:hover {
+            cursor: pointer;
+            border-image: linear-gradient(rgba(192, 88, 243, 1), rgba(85, 221, 255, 1));
+            border: .15rem solid;
+        }
+    }
+
+    p {
+        margin-top: 4rem;
+    }
+}
+
 .circle {
     width: 1.25rem;
     height: 1.25rem;
@@ -185,6 +262,7 @@ p {
     display: grid;
     place-content: center;
     margin: auto 0 auto 1.5rem;
+    z-index: 2;
 }
 
 .done {
@@ -198,5 +276,9 @@ p {
 
 .selected {
     color: rgba(58, 124, 253, 1);
+}
+
+.typing {
+    color: rgba(57, 58, 75, 1) !important;
 }
 

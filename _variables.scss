@@ -13,6 +13,11 @@
         background-color: rgba(37, 39, 61, 1);
         box-shadow: none;
         color: rgba(200, 203, 231, 1);
+        .test {
+            .btn-clear:hover {
+                color: rgba(227, 228, 241, 1);
+            }
+        }
     }
 
     .item {
@@ -28,6 +33,12 @@
         color: rgba(91, 94, 126, 1);
     }
 
+    .filter2 {
+        *:hover {
+            color: rgba(227, 228, 241, 1) !important;
+        }
+    }
+
     .input {
         input {
             background-color: rgba(37, 39, 61, 1);
@@ -39,5 +50,25 @@
     }
     p {
         color: rgba(91, 94, 126, 1)
+    }
+
+    .typing {
+        color: rgba(200, 203, 231, 1) !important;
+    }
+
+    body {
+        transition: background-color 1s ease-in, color 1s ease-in;
+    }
+    
+    .item, .form-control, .delete-btn {
+        transition: background-color 1s ease-in, color 1s ease-in;
+    }
+    
+    button, input {
+        transition: background-color 1s ease-in, color 1s ease-in, border-color 1s ease-in;
+    }
+    
+    .toggle {
+        transition: opacity 1s ease-in;
     }
 }

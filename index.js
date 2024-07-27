@@ -144,6 +144,14 @@ completedFilterBtn.addEventListener('click', () => {
     updateFilterButtonState(completedFilterBtn)
 })
 
+todoInput.addEventListener('keyup', () => {
+    if(todoInput.value === '') {
+        todoInput.classList.remove('typing')
+    } else {
+        todoInput.classList.add('typing')
+    }
+})
+
 
 
 // taskItems.forEach((item) => {
