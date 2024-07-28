@@ -46,6 +46,7 @@
   border: 0.15rem solid rgb(73, 76, 107);
 }
 .dark-mode .filter {
+  display: grid;
   background-color: rgb(37, 39, 61);
   color: rgb(91, 94, 126);
 }
