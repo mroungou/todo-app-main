@@ -7,6 +7,9 @@ const clearBtn = document.getElementById('btn-clear');
 const allFilterBtn = document.getElementById('all');
 const activeFilterBtn = document.getElementById('active');
 const completedFilterBtn = document.getElementById('completed');
+const allFilterBtnMobile = document.getElementById('all-mobile');
+const activeFilterBtnMobile = document.getElementById('active-mobile');
+const completedFilterBtnMobile = document.getElementById('completed-mobile');
 const activeTasksCount = document.getElementById('items-left-number');
 const tasksContainer = document.getElementById('tasks-container');
 
@@ -136,6 +139,23 @@ activeFilterBtn.addEventListener('click', () => {
 })
 
 completedFilterBtn.addEventListener('click', () => {
+    filteredTaskData = taskData.filter(task => task.completed)
+    updateTasksContainer();
+    updateFilterButtonState(completedFilterBtn)
+})
+allFilterBtnMobile.addEventListener('click', () => {
+    filteredTaskData = [...taskData];
+    updateTasksContainer();
+    updateFilterButtonState(allFilterBtn);
+});
+
+activeFilterBtnMobile.addEventListener('click', () => {
+    filteredTaskData = taskData.filter(task => !task.completed);
+    updateTasksContainer();
+    updateFilterButtonState(activeFilterBtn);
+})
+
+completedFilterBtnMobile.addEventListener('click', () => {
     filteredTaskData = taskData.filter(task => task.completed)
     updateTasksContainer();
     updateFilterButtonState(completedFilterBtn)
