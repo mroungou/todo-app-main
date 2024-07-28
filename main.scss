@@ -14,7 +14,7 @@
     display: none;
 }
 
-.filter2 {
+.desktop-filters {
     display: none;
 }
 
@@ -98,7 +98,7 @@ main {
     background-color: rgba(255, 255, 255, 1);
     box-shadow: 6px 6px 58px 2px rgba(227, 228, 241, 1);
 
-    .test {
+    .controls {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         padding: 1.5rem 1.5rem;
@@ -211,14 +211,14 @@ p {
     }
 
     .tasks {
-        .test {
+        .controls {
             grid-template-columns: repeat(3, 1fr);
             .btn-clear:hover {
                 cursor: pointer;
                 color: rgba(73, 76, 107, 1);
             }
         }
-        .filter2 {
+        .desktop-filters {
             display: grid;
             grid-template-columns: repeat(3, auto);
             padding: 0;

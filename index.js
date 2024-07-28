@@ -8,10 +8,7 @@ const allFilterBtn = document.getElementById('all');
 const activeFilterBtn = document.getElementById('active');
 const completedFilterBtn = document.getElementById('completed');
 const activeTasksCount = document.getElementById('items-left-number');
-// const taskItems = document.querySelectorAll('.form-control');
 const tasksContainer = document.getElementById('tasks-container');
-// const checkBoxes = document.querySelectorAll('input[type="checkbox"]');
-const filters = document.getElementsByClassName('filters');
 
 let taskData = JSON.parse(localStorage.getItem("tasks")) || [];
 let filteredTaskData = [...taskData];
@@ -151,13 +148,3 @@ todoInput.addEventListener('keyup', () => {
         todoInput.classList.add('typing')
     }
 })
-
-
-
-// taskItems.forEach((item) => {
-//     item.addEventListener('click', () => {
-//         item.parentElement.parentElement.classList.toggle('done');
-//     })
-// })
-
-

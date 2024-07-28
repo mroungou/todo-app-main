@@ -35,7 +35,7 @@
   box-shadow: none;
   color: rgb(200, 203, 231);
 }
-.dark-mode .tasks .test .btn-clear:hover {
+.dark-mode .tasks .controls .btn-clear:hover {
   color: rgb(227, 228, 241);
 }
 .dark-mode .item {
@@ -49,7 +49,7 @@
   background-color: rgb(37, 39, 61);
   color: rgb(91, 94, 126);
 }
-.dark-mode .filter2 *:hover {
+.dark-mode .desktop-filters *:hover {
   color: rgb(227, 228, 241) !important;
 }
 .dark-mode .input input {
@@ -86,7 +86,7 @@
   display: none;
 }
 
-.filter2 {
+.desktop-filters {
   display: none;
 }
 
@@ -163,14 +163,14 @@ main .task-manager {
   background-color: rgb(255, 255, 255);
   box-shadow: 6px 6px 58px 2px rgb(227, 228, 241);
 }
-.tasks .test {
+.tasks .controls {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   padding: 1.5rem 1.5rem;
   color: rgb(148, 149, 165);
   font-size: 0.75rem;
 }
-.tasks .test .btn-clear {
+.tasks .controls .btn-clear {
   margin-left: auto;
 }
 
@@ -264,23 +264,23 @@ p {
   .input {
     margin: auto 1.45rem 1.5rem;
   }
-  .tasks .test {
+  .tasks .controls {
     grid-template-columns: repeat(3, 1fr);
   }
-  .tasks .test .btn-clear:hover {
+  .tasks .controls .btn-clear:hover {
     cursor: pointer;
     color: rgb(73, 76, 107);
   }
-  .tasks .filter2 {
+  .tasks .desktop-filters {
     display: grid;
     grid-template-columns: repeat(3, auto);
     padding: 0;
     margin: auto;
   }
-  .tasks .filter2 * {
+  .tasks .desktop-filters * {
     margin: 0 0.75rem;
   }
-  .tasks .filter2 *:hover {
+  .tasks .desktop-filters *:hover {
     cursor: pointer;
     color: rgb(73, 76, 107);
   }
