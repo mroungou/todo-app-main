@@ -1,6 +1,15 @@
 @use 'fonts';
 @use 'variables';
 
+@media screen and (min-width: 1440px) {
+    .mobile {
+        display: none
+    }
+    .desktop {
+        display: block;
+    }
+}
+
 .dark-mode {
     @include variables.darkMode;
 }
@@ -11,7 +20,7 @@
 }
 
 .desktop {
-    display: none;
+    display: none !important;
 }
 
 .filter2 {
