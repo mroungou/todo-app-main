@@ -118,6 +118,11 @@ const updateFilterButtonState = (selectedButton) => {
     filterButtons.forEach(btn => btn.classList.remove('selected'));
     selectedButton.classList.add('selected');
 };
+const updateFilterButtonStateMobile = (selectedButton) => {
+    const filterButtons = [allFilterBtnMobile, activeFilterBtnMobile, completedFilterBtnMobile];
+    filterButtons.forEach(btn => btn.classList.remove('selected'));
+    selectedButton.classList.add('selected');
+};
 
 clearBtn.addEventListener('click', () => {
     taskData = taskData.filter(task => !task.completed)
@@ -146,19 +151,19 @@ completedFilterBtn.addEventListener('click', () => {
 allFilterBtnMobile.addEventListener('click', () => {
     filteredTaskData = [...taskData];
     updateTasksContainer();
-    updateFilterButtonState(allFilterBtnMobile);
+    updateFilterButtonStateMobile(allFilterBtnMobile);
 });
 
 activeFilterBtnMobile.addEventListener('click', () => {
     filteredTaskData = taskData.filter(task => !task.completed);
     updateTasksContainer();
-    updateFilterButtonState(activeFilterBtnMobile);
+    updateFilterButtonStateMobile(activeFilterBtnMobile);
 })
 
 completedFilterBtnMobile.addEventListener('click', () => {
     filteredTaskData = taskData.filter(task => task.completed)
     updateTasksContainer();
-    updateFilterButtonState(completedFilterBtnMobile)
+    updateFilterButtonStateMobile(completedFilterBtnMobile)
 })
 
 todoInput.addEventListener('keyup', () => {
