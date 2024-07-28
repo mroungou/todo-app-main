@@ -77,6 +77,9 @@
 .dark-mode .toggle {
   transition: opacity 1s ease-in;
 }
+.dark-mode .done {
+  color: rgb(77, 80, 103) !important;
+}
 
 * {
   margin: 0;
