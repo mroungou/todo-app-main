@@ -146,19 +146,19 @@ completedFilterBtn.addEventListener('click', () => {
 allFilterBtnMobile.addEventListener('click', () => {
     filteredTaskData = [...taskData];
     updateTasksContainer();
-    updateFilterButtonState(allFilterBtn);
+    updateFilterButtonState(allFilterBtnMobile);
 });
 
 activeFilterBtnMobile.addEventListener('click', () => {
     filteredTaskData = taskData.filter(task => !task.completed);
     updateTasksContainer();
-    updateFilterButtonState(activeFilterBtn);
+    updateFilterButtonState(activeFilterBtnMobile);
 })
 
 completedFilterBtnMobile.addEventListener('click', () => {
     filteredTaskData = taskData.filter(task => task.completed)
     updateTasksContainer();
-    updateFilterButtonState(completedFilterBtn)
+    updateFilterButtonState(completedFilterBtnMobile)
 })
 
 todoInput.addEventListener('keyup', () => {
