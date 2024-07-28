@@ -1,17 +1,31 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
-@media screen and (min-width: 1440px) {
-  .mobile {
-    display: none;
+@media screen and (min-width: 375px) {
+  .dark-mode .mobile {
+    display: block;
   }
-  .desktop {
+  .dark-mode .desktop {
+    display: none !important;
+  }
+  .dark-mode .light {
+    display: none !important;
+  }
+  .dark-mode .dark {
     display: block;
   }
 }
-.dark-mode .light {
-  display: none;
-}
-.dark-mode .dark {
-  display: block;
+@media screen and (min-width: 1440px) {
+  .dark-mode .mobile {
+    display: none !important;
+  }
+  .dark-mode .desktop {
+    display: block !important;
+  }
+  .dark-mode .light {
+    display: none !important;
+  }
+  .dark-mode .dark {
+    display: block;
+  }
 }
 .dark-mode main {
   background-color: rgb(23, 24, 35) !important;
@@ -69,7 +83,7 @@
 }
 
 .desktop {
-  display: none !important;
+  display: none;
 }
 
 .filter2 {
@@ -236,7 +250,7 @@ p {
     display: block;
   }
   .mobile {
-    display: none !important;
+    display: none;
   }
   main .task-manager {
     margin: 10.5rem 27.55rem;

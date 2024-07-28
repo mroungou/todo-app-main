@@ -1,9 +1,32 @@
 @mixin darkMode {
-    .light {
-        display: none;
+    @media screen and (min-width: 375px) {
+        .mobile {
+            display: block;
+        }
+        .desktop {
+            display: none !important;
+        }
+        .light {
+            display: none !important;
+        }
+        .dark {
+            display: block;
+        }
     }
-    .dark {
-        display: block;
+
+    @media screen and (min-width: 1440px) {
+        .mobile {
+            display: none !important;
+        }
+        .desktop {
+            display: block !important;
+        }
+        .light {
+            display: none !important;
+        }
+        .dark {
+            display: block;
+        }
     }
     main {
         background-color: rgba(23, 24, 35, 1) !important;
